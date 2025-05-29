@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growthmate Infotech - Empowering Digital Growth</title>
+    <title>Growthmate Infotech - AI-Powered Learning Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -17,6 +17,7 @@
             background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
             color: #e0e1dd;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -45,15 +46,32 @@
             height: 50px;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             color: #e0e1dd;
             text-decoration: none;
             margin-left: 30px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #00d4ff;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .signin-btn {
@@ -63,21 +81,41 @@
             border: none;
             color: white;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .signin-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1) 0%, transparent 100%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero-content {
+            position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
@@ -90,21 +128,45 @@
             background: linear-gradient(45deg, #00d4ff, #0077b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
         }
 
         .hero-text p {
             font-size: 1.2rem;
             margin-bottom: 30px;
+            color: #a8b2d1;
+        }
+
+        .hero-image {
+            position: relative;
         }
 
         .hero-image img {
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
         }
 
         .features {
             padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #00d4ff;
         }
 
         .features-grid {
@@ -118,11 +180,14 @@
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.1);
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
         }
 
         .feature-card img {
@@ -133,6 +198,92 @@
         .feature-card h3 {
             margin-bottom: 15px;
             color: #00d4ff;
+        }
+
+        .ai-modules {
+            padding: 100px 0;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .module-card h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00d4ff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 5px;
+            color: #e0e1dd;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #00d4ff, #0077b6);
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -148,6 +299,10 @@
             .nav-links {
                 display: none;
             }
+
+            .mobile-menu {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -159,7 +314,7 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#about">About</a>
+                <a href="#ai-modules">AI Modules</a>
                 <a href="#contact">Contact</a>
                 <a href="/app" class="signin-btn">Sign In</a>
             </div>
@@ -169,35 +324,77 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>Empowering Digital Growth</h1>
-                <p>Transform your business with cutting-edge AI solutions and expert digital strategies. Join Growthmate Infotech to accelerate your digital journey.</p>
+                <h1>AI-Powered Learning Platform</h1>
+                <p>Experience the future of education with our cutting-edge AI modules. Transform your learning journey with personalized assessments and real-time feedback.</p>
                 <a href="/app" class="signin-btn">Get Started</a>
             </div>
             <div class="hero-image">
-                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Digital Growth">
+                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="AI Learning">
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="container">
+            <h2 class="section-title">Our Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/ai.png" alt="AI Solutions">
-                    <h3>AI Solutions</h3>
-                    <p>Leverage the power of artificial intelligence to optimize your business processes and decision-making.</p>
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/ai.png" alt="AI Assessment">
+                    <h3>AI Assessment</h3>
+                    <p>Advanced algorithms to evaluate your skills and provide personalized feedback.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/digital.png" alt="Digital Strategy">
-                    <h3>Digital Strategy</h3>
-                    <p>Comprehensive digital transformation strategies tailored to your business needs.</p>
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/digital.png" alt="Real-time Feedback">
+                    <h3>Real-time Feedback</h3>
+                    <p>Instant analysis and suggestions to improve your performance.</p>
                 </div>
                 <div class="feature-card">
-                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/analytics.png" alt="Analytics">
-                    <h3>Advanced Analytics</h3>
-                    <p>Data-driven insights to help you make informed business decisions.</p>
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/analytics.png" alt="Progress Tracking">
+                    <h3>Progress Tracking</h3>
+                    <p>Detailed analytics to monitor your learning journey.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="ai-modules" id="ai-modules">
+        <div class="container">
+            <h2 class="section-title">AI Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>Text-to-Text</h3>
+                    <p>Advanced natural language processing for text-based assessments and feedback.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Voice-to-Voice</h3>
+                    <p>Real-time voice analysis and interactive speaking assessments.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Face-to-Face</h3>
+                    <p>Coming soon: AI-powered video interactions and facial expression analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -206,6 +403,16 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.location.href = '/app';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
