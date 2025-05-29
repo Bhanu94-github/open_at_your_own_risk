@@ -1,0 +1,16 @@
+streamlit==1.35.0
+audiorecorder
+email-validator
+fpdf
+gtts
+groq
+pillow
+plotly
+pydub
+pymongo
+python-docx
+python-dotenv
+PyPDF2
+pdfplumber
+spacy
+whisper
