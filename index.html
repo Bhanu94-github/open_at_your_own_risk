@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growthmate Infotech - Empowering Digital Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: #e0e1dd;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links a {
+            color: #e0e1dd;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .signin-btn {
+            background: linear-gradient(45deg, #00d4ff, #0077b6);
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .signin-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4ff, #0077b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="https://growthmateinfotech.in/growthmate/assets/img/logo1.png" alt="Growthmate Infotech">
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="/app" class="signin-btn">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Empowering Digital Growth</h1>
+                <p>Transform your business with cutting-edge AI solutions and expert digital strategies. Join Growthmate Infotech to accelerate your digital journey.</p>
+                <a href="/app" class="signin-btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Digital Growth">
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/ai.png" alt="AI Solutions">
+                    <h3>AI Solutions</h3>
+                    <p>Leverage the power of artificial intelligence to optimize your business processes and decision-making.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/digital.png" alt="Digital Strategy">
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive digital transformation strategies tailored to your business needs.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://growthmateinfotech.in/growthmate/assets/img/features/analytics.png" alt="Analytics">
+                    <h3>Advanced Analytics</h3>
+                    <p>Data-driven insights to help you make informed business decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.signin-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = '/app';
+            });
+        });
+    </script>
+</body>
+</html>
