@@ -1,5 +1,12 @@
 import streamlit as st
 import os
+from pymongo import MongoClient
+import bcrypt
+
+# MongoDB connection
+client = MongoClient("mongodb://localhost:27017/")
+db = client["instructor"]
+access_students = db["access_students"]
 
 # -------------------- Page Config --------------------
 st.set_page_config(page_title="GrowthMate AI Platform", layout="wide")
