@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # -------------------- Page Config --------------------
 st.set_page_config(page_title="GrowthMate AI Platform", layout="wide")
@@ -13,6 +14,20 @@ try:
     from voice import main as voice_main
 except Exception as e:
     st.error(f"Import error: {e}")
+
+# Check if accessing through landing page
+if 'from_landing' not in st.session_state:
+    # Serve the landing page
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    index_path = os.path.join(current_dir, 'index.html')
+    
+    if os.path.exists(index_path):
+        with open(index_path, 'r') as f:
+            landing_page = f.read()
+            st.markdown(landing_page, unsafe_allow_html=True)
+            st.stop()
+    else:
+        st.session_state.from_landing = True
 
 # -------------------- Session State Initialization --------------------
 if "page" not in st.session_state:
@@ -439,4 +454,3 @@ with st.container():
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         main_app()
-    
